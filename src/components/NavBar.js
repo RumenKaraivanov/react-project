@@ -2,33 +2,32 @@ import React from "react";
 
 const Navbar = () => {
     return (
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <div class="collapse navbar-collapse">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container-fluid">
+                <a className="navbar-brand" href="#">Home</a>
 
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="#">Create</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Create</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Profile</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Profile</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Login</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Welcome, user</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Register</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Login</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Logout, user</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Register</a>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
         </nav>
     );
-}
-export default Navbar
+};
+export default Navbar;
