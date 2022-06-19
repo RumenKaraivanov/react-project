@@ -93,3 +93,18 @@ code {
 .form-button:focus {
   background-color: hsla(201, 100%, 50%, 0.5)
 }
+
+.card-img {
+  height: 100px;
+}
+
+.card-box {
+  border-radius: 5%;
+}
+
+.car-header {
+  text-align: center;
+  color: black;
+  position: absolute;
+  bottom: 75%;
+}
