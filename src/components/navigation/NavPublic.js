@@ -2,24 +2,14 @@ import React from "react";
 
 const NavPublic = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
-                <a className="navbar-brand" href="#">Home</a>
-
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Catalog</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Login</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Register</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/catalog">Dashboard</a></li>
+                <li><a href="javascript:void(0)">Welcome, Guest</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            </ul>
         </nav>
     );
 };

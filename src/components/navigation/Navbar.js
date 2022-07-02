@@ -1,10 +1,10 @@
-
 import NavLoggedIn from "./NavLoggedIn";
 import NavPublic from "./NavPublic";
+import './Navbar.css';
 
 function isAuth() {
 
-    return false;
+    return true;
 }
 
 const Navbar = () => {
