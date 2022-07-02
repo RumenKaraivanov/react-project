@@ -5,12 +5,13 @@ import Register from './components/Register/Register';
 import Create from './components/Create/Create';
 import Edit from './components/Edit/Edit';
 import Catalog from './components/Catalog/Catalog';
+import Details from './components/Details/Details';
 
 function App() {
   return (
     <>
       <Navbar />
-      <Catalog />
+      <Details />
     </>
 
   );
