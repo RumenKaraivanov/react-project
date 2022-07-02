@@ -6,12 +6,13 @@ import Create from './components/Create/Create';
 import Edit from './components/Edit/Edit';
 import Catalog from './components/Catalog/Catalog';
 import Details from './components/Details/Details';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
     <>
       <Navbar />
-      <Details />
+      <NotFound />
     </>
 
   );

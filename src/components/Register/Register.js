@@ -5,7 +5,7 @@ import './Register.css';
 
 const Register = () => {
     return (
-        <section>
+        <section className="register-section">
             <div className="register">
                 <div className="col-1">
                     <h2>Sign Up</h2>

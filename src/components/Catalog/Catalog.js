@@ -3,7 +3,7 @@ import './Catalog.css';
 
 const Catalog = () => {
     return (
-        <div className="container">
+        <div className="container-catalog">
             <main className="grid">
 
 

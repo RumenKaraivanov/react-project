@@ -13,7 +13,8 @@ body {
 
 }
 
-section {
+.register-section{
+    margin-top: 50px;
     position: absolute;
     left: 15%;
     top: 15%;
