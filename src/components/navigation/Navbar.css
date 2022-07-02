@@ -35,8 +35,11 @@ nav a {
     text-transform: uppercase;
 }
 
-nav a:hover,
-footer a:hover {
+nav a:hover {
     font-weight: normal;
     background-color: rgba(145, 219, 227, 0.899);
+}
+
+.disabled-link {
+    pointer-events: none;
 }

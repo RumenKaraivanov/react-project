@@ -1,14 +1,15 @@
-import React from "react";
+import { NavLink } from 'react-router-dom';
+
 
 const NavLoggedIn = () => {
     return (
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/catalog">Dashboard</a></li>
-                <li><a href="/catalog">Profile</a></li>
-                <li><a href="/create">Create</a></li>
-                <li><a href="/logout">Logout as, name</a></li>
+                <li><NavLink to="/">Home</NavLink></li>
+                <li><NavLink to="/catalog">Dashboard</NavLink></li>
+                <li><NavLink to="/profile">Profile</NavLink></li>
+                <li><NavLink to="/create">Create</NavLink></li>
+                <li><NavLink to="/logout">Logout as, name</NavLink></li>
             </ul>
         </nav>
     );

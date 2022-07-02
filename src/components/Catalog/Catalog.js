@@ -6,8 +6,7 @@ const Catalog = () => {
         <div className="container-catalog">
             <main className="grid">
 
-
-
+            
             </main>
             <div class="no-data">
                 <h1>There are no data in database yet.</h1>

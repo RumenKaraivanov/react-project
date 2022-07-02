@@ -1,14 +1,14 @@
-import React from "react";
+import { NavLink } from 'react-router-dom';
 
 const NavPublic = () => {
     return (
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/catalog">Dashboard</a></li>
-                <li><a href="javascript:void(0)">Welcome, Guest</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
+                <li><NavLink to="/">Home</NavLink></li>
+                <li><NavLink to="/catalog">Dashboard</NavLink></li>
+                <li><NavLink to="javascript:void(0)" className='disabled-link' >Welcome, Guest</NavLink></li>
+                <li><NavLink to="/login">Login</NavLink></li>
+                <li><NavLink to="/register">Register</NavLink></li>
             </ul>
         </nav>
     );

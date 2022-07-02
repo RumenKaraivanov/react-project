@@ -40,14 +40,14 @@
     text-transform: uppercase;
 }
 
-.text button {
-    background: #ef6f6c;
+.text .details-btn {
+    background: #2f2e92;
     border-radius: 20px;
     border: none;
     color: #fff;
-    padding: 10px;
+    padding: 4px;
     width: 100%;
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     cursor: pointer;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 
 const ItemCard = () => {
     return (
@@ -7,7 +8,7 @@ const ItemCard = () => {
         <div className="text">
             <h3>Title: </h3>
             <p>Description: </p>
-            <button>Details</button>
+            <NavLink className='details-btn' to='/details'>Details</NavLink>
         </div>
       </article>
     );
