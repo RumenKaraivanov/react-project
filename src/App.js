@@ -1,5 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import Navbar from './components/navigation/Navbar';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
@@ -10,22 +11,42 @@ import Details from './components/Details/Details';
 import NotFound from './components/NotFound/NotFound';
 import Logout from './components/Logout/Logout';
 import Home from './components/Home/Home';
+import Error from './components/Error/Error';
+import LoginContext from './contexts/LoginContext';
 
 function App() {
+  const [err, setErr] = useState(null);
+  const [user, setUser] = useState({});
+  const onLogin = (userData) => {
+    setUser(userData);
+  };
+  const onRegister = (userData) => {
+    setUser(userData);
+  };
+  const onError = (err) => {
+    setErr(err.message)
+    setTimeout(() => {
+      setErr(null)
+    }, 2000)
+  };
+
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/catalog' element={<Catalog />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/create' element={<Create />} />
-        <Route path='/edit' element={<Edit />} />
-        <Route path='/details' element={<Details />} />
-        <Route path='/logout' element={<Logout />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+      <LoginContext.Provider value={user}>
+        <Navbar />
+        {err && <Error err={err} />}
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/catalog' element={<Catalog />} />
+          <Route path='/register' element={<Register onRegister={onRegister} onError={onError} />} />
+          <Route path='/login' element={<Login onLogin={onLogin} onError={onError} />} />
+          <Route path='/create' element={<Create />} />
+          <Route path='/edit' element={<Edit />} />
+          <Route path='/details' element={<Details />} />
+          <Route path='/logout' element={<Logout />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </LoginContext.Provider>
     </>
 
   );

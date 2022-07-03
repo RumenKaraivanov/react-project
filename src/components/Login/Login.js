@@ -1,43 +1,32 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import loginImg from '../../assets/loginImg.jpg';
 import './Login.css';
+import { login } from '../services/user';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
-
-    const [user, setUser] = useState('');
-    const [email, setEmail] = useState('');
-    const [pwd, setPwd] = useState('');
-
-    // useEffect(() => {
-    //     const makeRequest = async () => {
-    //         const response = await fetch('http://localhost:3030/users/login',
-    //             {
-    //                 method: 'POST',
-    //                 headers: { 'Content-Type': 'apllication/json' }
-    //             });
-    //         const result = await response.json();
-    //         console.log(result)
-    //     };
-    //     makeRequest()
-
-    // }, []);
+const Login = ({
+    onLogin,
+    onError
+}) => {
+    const [isDisabled, setDisabled] = useState(false);
+    const navigate = useNavigate();
 
     const onSubmit = async (e) => {
         e.preventDefault();
+
         const formData = new FormData(e.target);
         const email = formData.get('email')?.trim();
         const password = formData.get('password')?.trim();
-        console.log(email)
-        console.log(password)
-       
-        const response = await fetch('http://localhost:3030/users/login',
-            {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
-        const result = await response.json();
-        console.log(result)
+
+        try {
+            const result = await login(email, password);
+            onLogin(result);
+            setDisabled(true);
+            navigate('/catalog');
+           
+        } catch (err) {
+            onError(err);
+        }
     };
 
     return (
@@ -50,7 +39,7 @@ const Login = () => {
                     <form onSubmit={onSubmit} className='form flex flex-col' >
                         <input type="text" name="email" placeholder='email' />
                         <input type="password" name="password" placeholder='password' />
-                        <button type="submit" className='btn'>Login</button>
+                        <button type="submit" className='btn' disabled={isDisabled}>Login</button>
                     </form>
 
                 </div>
