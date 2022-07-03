@@ -2,10 +2,10 @@ import './Home.css';
 
 const Home = () => {
     return (
-        <section id="home-page" class="background-image">
-        <div class="home-container">
+        <section id="home-page" className="background-image">
+        <div className="home-container">
     
-            <div class="info">
+            <div className="info">
                 <h1>Welcome</h1>
             </div>
     

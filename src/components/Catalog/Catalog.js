@@ -8,7 +8,7 @@ const Catalog = () => {
 
             
             </main>
-            <div class="no-data">
+            <div className="no-data">
                 <h1>There are no data in database yet.</h1>
             </div>
         </div >

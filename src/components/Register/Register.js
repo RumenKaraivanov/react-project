@@ -11,8 +11,7 @@ const Register = () => {
                     <h2>Sign Up</h2>
                     <span>register and enjoy the service</span>
 
-                    <form id='form' className='flex flex-col' >
-                        <input type="text" placeholder='username' />
+                    <form className='form flex flex-col' >
                         <input type="text" placeholder='email' />
                         <input type="password" placeholder='password' />
                         <input type="password" placeholder='confirm password' />

@@ -5,15 +5,15 @@ const Create = () => {
     return (
         <div className="full-screen-container" style={{ backgroundImage: 'url(background_image.jpg)' }}>
             <div className="form-container">
-                <h3 className="form-title">Create Car</h3>
+                <h3 className="form-title">Create</h3>
                 <form>
                     <div className="input-group">
                         <label htmlFor="model">Model</label>
                         <input id="model" type="text" />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="brand">Brand</label>
-                        <input id="brand" type="text" />
+                        <label htmlFor="price">Price</label>
+                        <input id="price" type="text" />
                     </div>
                     <div className="input-group">
                         <label htmlFor="imageUrl">Image</label>

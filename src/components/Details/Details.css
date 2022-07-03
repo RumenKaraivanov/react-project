@@ -95,6 +95,9 @@ span {
 }
 
 .car-btn button,
+.edit,
+.remove,
+.like-model,
 .car-btn p {
     height: auto;
     width: auto;

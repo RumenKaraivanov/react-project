@@ -1,6 +1,7 @@
 import React from "react";
 import './Details.css';
 import loginImg from '../../assets/loginImg.jpg';
+import { NavLink } from 'react-router-dom';
 
 const Details = () => {
     return (
@@ -24,12 +25,12 @@ const Details = () => {
 
                     <div className="car-btn">
 
-                        <button href="/edit/{{house._id}}" className="edit">Edit</button>
-                        <button href="/edit/{{house._id}}/delete" className="remove">Delete</button>
+                        <NavLink to="/edit" className="edit">Edit</NavLink>
+                        <NavLink to="/delete" className="remove">Delete</NavLink>
 
                         <p className="already-liked">You have already Liked this publication.</p>
 
-                        <button href="like-model" className="like-model">Like</button>
+                        <NavLink to='/like' className="like-model">Like</NavLink>
                     </div>
                 </div>
             </div>
