@@ -4,6 +4,8 @@ export const login = async (email, password) => {
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
+                mode: 'cors',
+                credentials: 'include',
                 body: JSON.stringify({ email, password })
             });
         if (response.ok !== true) {
@@ -21,6 +23,7 @@ export const register = async (email, password) => {
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
                 body: JSON.stringify({ email, password })
             });
         if (response.ok !== true) {
