@@ -9,13 +9,11 @@ import Edit from './components/Edit/Edit';
 import Catalog from './components/Catalog/Catalog';
 import Details from './components/Details/Details';
 import NotFound from './components/NotFound/NotFound';
-import Logout from './components/Logout/Logout';
 import Home from './components/Home/Home';
 import Error from './components/Error/Error';
 
 function App() {
   const [err, setErr] = useState(null);
-
 
   const onError = (err) => {
     setErr(err.message)
@@ -26,7 +24,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar onError={onError} />
       {err && <Error err={err} />}
       <Routes>
         <Route path='/' element={<Home />} />
@@ -36,7 +34,6 @@ function App() {
         <Route path='/create' element={<Create />} />
         <Route path='/edit' element={<Edit />} />
         <Route path='/details' element={<Details />} />
-        <Route path='/logout' element={<Logout />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>

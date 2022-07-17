@@ -4,11 +4,13 @@ import { useContext } from "react";
 import AuthContext from "../../contexts/AuthContext";
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({
+    onError
+}) => {
     const { auth } = useContext(AuthContext);
     return (
         <>
-            {auth.email ? <NavLoggedIn user={auth} /> : <NavPublic />}
+            {auth.email ? <NavLoggedIn onError={onError} user={auth} /> : <NavPublic />}
         </>
     );
 };

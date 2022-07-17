@@ -35,5 +35,23 @@ export const register = async (email, password) => {
         throw err;
     }
 };
+export const logout = async (token) => {
+    try {
+        const response = await fetch('http://localhost:3030/users/logout',
+            {
+                headers: {
+                    'X-Authorization': token,
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include'
+            });
 
-
+        if (response.ok !== true) {
+            const error = await response.json();
+            throw new Error(error.message);
+        };
+        return response;
+    } catch (err) {
+        throw err;
+    }
+}
