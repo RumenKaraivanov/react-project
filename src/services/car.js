@@ -19,7 +19,7 @@ export const create = async (data, token) => {
         throw err;
     }
 };
-export const getAll = async ()=> {
+export const getAll = async () => {
     try {
         const response = await fetch('http://localhost:3030/data/cars');
         if (response.ok !== true) {
@@ -30,4 +30,16 @@ export const getAll = async ()=> {
     } catch (err) {
         throw err;
     }
-}
+};
+export const getOneById = async (id) => {
+    try {
+        const response = await fetch('http://localhost:3030/data/cars/' + id);
+        if (response.ok !== true) {
+            const error = await response.json();
+            throw new Error(error.message);
+        };
+        return await response.json();
+    } catch (err) {
+        throw err;
+    }
+};

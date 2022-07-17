@@ -35,7 +35,7 @@ function App() {
         <Route element={<PersistLogin onError={onError} />}>
           <Route path='/create' element={<Create onError={onError} />} />
           <Route path='/edit' element={<Edit />} />
-          <Route path='/details' element={<Details />} />
+          <Route path='/details/:id' element={<Details onError={onError} />} />
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>
