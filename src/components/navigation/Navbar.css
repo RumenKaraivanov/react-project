@@ -34,6 +34,9 @@ nav a {
     color: white;
     text-transform: uppercase;
 }
+nav button {
+    cursor: pointer;
+}
 
 nav a:hover {
     font-weight: normal;

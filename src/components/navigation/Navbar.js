@@ -10,7 +10,7 @@ const Navbar = ({
     const { auth } = useContext(AuthContext);
     return (
         <>
-            {auth.email ? <NavLoggedIn onError={onError} user={auth} /> : <NavPublic />}
+            {auth?.email ? <NavLoggedIn onError={onError} user={auth} /> : <NavPublic />}
         </>
     );
 };

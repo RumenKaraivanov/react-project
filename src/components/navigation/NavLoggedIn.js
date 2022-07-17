@@ -10,11 +10,11 @@ const NavLoggedIn = ({
     onError
 }) => {
     const navigate = useNavigate();
-    const { auth, setAuth } = useContext(AuthContext);
+    const { setAuth } = useContext(AuthContext);
 
     async function handleLogout() {
         try {
-            await logout(auth.accessToken);
+            await logout(user.accessToken);
             setAuth({});
             navigate('/login', { replace: true });
         } catch (err) {

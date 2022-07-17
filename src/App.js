@@ -11,6 +11,7 @@ import Details from './components/Details/Details';
 import NotFound from './components/NotFound/NotFound';
 import Home from './components/Home/Home';
 import Error from './components/Error/Error';
+import PersistLogin from './components/PersistLogin/PersistLogin';
 
 function App() {
   const [err, setErr] = useState(null);
@@ -31,9 +32,11 @@ function App() {
         <Route path='/catalog' element={<Catalog />} />
         <Route path='/register' element={<Register onError={onError} />} />
         <Route path='/login' element={<Login onError={onError} />} />
-        <Route path='/create' element={<Create />} />
-        <Route path='/edit' element={<Edit />} />
-        <Route path='/details' element={<Details />} />
+        <Route element={<PersistLogin onError={onError} />}>
+          <Route path='/create' element={<Create />} />
+          <Route path='/edit' element={<Edit />} />
+          <Route path='/details' element={<Details />} />
+        </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>
