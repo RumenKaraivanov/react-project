@@ -29,7 +29,7 @@ function App() {
       {err && <Error err={err} />}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/catalog' element={<Catalog />} />
+        <Route path='/catalog' element={<Catalog onError={onError} />} />
         <Route path='/register' element={<Register onError={onError} />} />
         <Route path='/login' element={<Login onError={onError} />} />
         <Route element={<PersistLogin onError={onError} />}>

@@ -18,4 +18,16 @@ export const create = async (data, token) => {
     } catch (err) {
         throw err;
     }
+};
+export const getAll = async ()=> {
+    try {
+        const response = await fetch('http://localhost:3030/data/cars');
+        if (response.ok !== true) {
+            const error = await response.json();
+            throw new Error(error.message);
+        };
+        return await response.json();
+    } catch (err) {
+        throw err;
+    }
 }
