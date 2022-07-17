@@ -33,7 +33,7 @@ function App() {
         <Route path='/register' element={<Register onError={onError} />} />
         <Route path='/login' element={<Login onError={onError} />} />
         <Route element={<PersistLogin onError={onError} />}>
-          <Route path='/create' element={<Create />} />
+          <Route path='/create' element={<Create onError={onError} />} />
           <Route path='/edit' element={<Edit />} />
           <Route path='/details' element={<Details />} />
         </Route>
