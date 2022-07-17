@@ -1,17 +1,14 @@
 import NavLoggedIn from "./NavLoggedIn";
 import NavPublic from "./NavPublic";
 import { useContext } from "react";
-import LoginContext from "../../contexts/LoginContext";
+import AuthContext from "../../contexts/AuthContext";
 import './Navbar.css';
 
 const Navbar = () => {
-
-    const user = useContext(LoginContext);
+    const { auth } = useContext(AuthContext);
     return (
         <>
-
-            {user.email ? <NavLoggedIn user={user} /> : <NavPublic />}
-
+            {auth.email ? <NavLoggedIn user={auth} /> : <NavPublic />}
         </>
     );
 };

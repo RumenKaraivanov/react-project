@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import bgImg from '../../assets/img.jpg';
 import './Register.css';
 import { register } from '../services/user';
 import { useNavigate } from 'react-router-dom';
-
+import AuthContext from "../../contexts/AuthContext";
 
 const Register = ({
-    onRegister,
     onError }
 ) => {
+    const { setAuth } = useContext(AuthContext);
     const [isDisabled, setDisabled] = useState(false);
-    const navigate =  useNavigate();
+    const navigate = useNavigate();
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -25,9 +25,9 @@ const Register = ({
                 throw new Error('Passwords doesnt match!');
             }
             const result = await register(email, password);
-            onRegister(result);
+            setAuth(result);
             setDisabled(true);
-            navigate('/catalog');
+            navigate('/catalog', { replace: true });
         } catch (err) {
             onError(err);
         }

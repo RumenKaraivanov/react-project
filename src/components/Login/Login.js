@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import loginImg from '../../assets/loginImg.jpg';
 import './Login.css';
 import { login } from '../services/user';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from "../../contexts/AuthContext";
+
 
 const Login = ({
-    onLogin,
     onError
 }) => {
+    const { setAuth } = useContext(AuthContext);
     const [isDisabled, setDisabled] = useState(false);
     const navigate = useNavigate();
 
@@ -20,10 +22,10 @@ const Login = ({
 
         try {
             const result = await login(email, password);
-            onLogin(result);
+            setAuth(result);
             setDisabled(true);
-            navigate('/catalog');
-           
+            navigate('/catalog', { replace: true });
+
         } catch (err) {
             onError(err);
         }
