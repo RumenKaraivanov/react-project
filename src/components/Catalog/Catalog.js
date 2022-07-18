@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAll } from "../../services/car";
-import ItemCard from "../ItemTile/ItemCard";
+import ItemCard from "../ItemCard/ItemCard";
 import './Catalog.css';
 
 const Catalog = ({

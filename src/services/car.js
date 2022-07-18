@@ -1,6 +1,8 @@
+const baseUrl = 'http://localhost:3030';
+
 export const create = async (data, token) => {
     try {
-        const response = await fetch('http://localhost:3030/data/cars',
+        const response = await fetch(`${baseUrl}/data/cars`,
             {
                 method: 'POST',
                 headers: {
@@ -21,7 +23,7 @@ export const create = async (data, token) => {
 };
 export const getAll = async () => {
     try {
-        const response = await fetch('http://localhost:3030/data/cars');
+        const response = await fetch(`${baseUrl}/data/cars`);
         if (response.ok !== true) {
             const error = await response.json();
             throw new Error(error.message);
@@ -33,7 +35,7 @@ export const getAll = async () => {
 };
 export const getOneById = async (id) => {
     try {
-        const response = await fetch('http://localhost:3030/data/cars/' + id);
+        const response = await fetch(`${baseUrl}/data/cars/` + id);
         if (response.ok !== true) {
             const error = await response.json();
             throw new Error(error.message);

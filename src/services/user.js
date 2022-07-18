@@ -23,6 +23,7 @@ export const register = async (email, password) => {
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
+                mode: 'cors',
                 credentials: 'include',
                 body: JSON.stringify({ email, password })
             });
@@ -43,6 +44,7 @@ export const logout = async (token) => {
                     'X-Authorization': token,
                     'Content-Type': 'application/json'
                 },
+                mode: 'cors',
                 credentials: 'include'
             });
 

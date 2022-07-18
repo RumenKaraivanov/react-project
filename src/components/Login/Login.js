@@ -10,7 +10,7 @@ const Login = ({
     onError
 }) => {
     const { setAuth } = useContext(AuthContext);
-    const [isDisabled, setDisabled] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false);
     const navigate = useNavigate();
 
     const onSubmit = async (e) => {
@@ -23,7 +23,7 @@ const Login = ({
         try {
             const result = await login(email, password);
             setAuth(result);
-            setDisabled(true);
+            setIsDisabled(true);
             navigate('/catalog', { replace: true });
 
         } catch (err) {

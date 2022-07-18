@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import AuthContext from "../../contexts/AuthContext";
@@ -24,10 +24,10 @@ const NavLoggedIn = ({
     return (
         <nav>
             <ul>
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/catalog">Dashboard</NavLink></li>
-                <li><NavLink to="/profile">Profile</NavLink></li>
-                <li><NavLink to="/create">Create</NavLink></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/catalog">Dashboard</Link></li>
+                <li><Link to="/profile">Profile</Link></li>
+                <li><Link to="/create">Create</Link></li>
                 <li><button onClick={handleLogout}>Logout as, {user.email}</button></li>
             </ul>
         </nav>
