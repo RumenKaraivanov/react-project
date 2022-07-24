@@ -31,7 +31,7 @@ const Edit = ({
         } catch (err) {
             onError(err);
         };
-    }, []);
+    }, [id, onError]);
     const onChange = (e) => {
         setInputValues(oldValues => {
             return {

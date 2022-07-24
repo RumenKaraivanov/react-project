@@ -15,6 +15,7 @@
 .car-img img {
     border-radius: 12px 0 0 7px;
     height: 100%;
+    width: 100%;
 }
 
 .car-info {

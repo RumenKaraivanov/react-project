@@ -19,7 +19,7 @@ const Catalog = ({
             onError(err)
         }
 
-    }, []);
+    }, [onError]);
 
     return (
         <div className="container-catalog">

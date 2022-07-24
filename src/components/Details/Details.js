@@ -13,7 +13,7 @@ const Details = ({
     const [isLiked, setIsLiked] = useState(false);
     const [justLiked, setJustLiked] = useState(false);
     const { auth } = useContext(AuthContext);
-    console.log('rerender')
+
     useEffect(() => {
         async function getCar() {
             const data = await getOneById(id);
@@ -31,7 +31,7 @@ const Details = ({
         } catch (err) {
             onError(err);
         };
-    }, [justLiked]);
+    }, [justLiked, id, onError,auth._id]);
     const onLike = async () => {
         await likeCar(car._id, auth.accessToken);
         setJustLiked(state => !state);
