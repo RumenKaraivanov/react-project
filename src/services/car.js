@@ -42,6 +42,26 @@ export const editCar = async (id, data, token) => {
         throw err;
     }
 }
+export const likeCar = async (id, token) => {
+    try {
+        const response = await fetch(`${baseUrl}/data/cars/likes/` + id,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Authorization': token
+                },
+                credentials: 'include',
+            });
+        if (response.ok !== true) {
+            const error = await response.json();
+            throw new Error(error.message);
+        };
+        return await response.json();
+    } catch (err) {
+        throw err;
+    }
+};
 export const getAll = async () => {
     try {
         const response = await fetch(`${baseUrl}/data/cars`);

@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { getOneById } from "../../services/car";
+import { getOneById, likeCar } from "../../services/car";
 import './Details.css';
 import { Link, useParams } from 'react-router-dom';
 import AuthContext from "../../contexts/AuthContext";
@@ -10,21 +10,32 @@ const Details = ({
     const { id } = useParams();
     const [car, setCar] = useState({});
     const [isOwner, setIsOwner] = useState(false);
+    const [isLiked, setIsLiked] = useState(false);
+    const [justLiked, setJustLiked] = useState(false);
     const { auth } = useContext(AuthContext);
+    console.log('rerender')
     useEffect(() => {
-        try {
-            async function getCar() {
-                const data = await getOneById(id);
-                setCar(data);
-                if (auth._id === data._ownerId) {
-                    setIsOwner(true);
-                };
+        async function getCar() {
+            const data = await getOneById(id);
+            setCar(data);
+            const liked = data.likes.find(likeId => likeId === auth._id);
+            if (auth._id === data._ownerId) {
+                setIsOwner(true);
             };
+            if (liked) {
+                setIsLiked(true);
+            };
+        };
+        try {
             getCar();
         } catch (err) {
             onError(err);
         };
-    }, []);
+    }, [justLiked]);
+    const onLike = async () => {
+        await likeCar(car._id, auth.accessToken);
+        setJustLiked(state => !state);
+    };
     return (
         <section id="deatils-page">
             <div className="container">
@@ -47,8 +58,10 @@ const Details = ({
                                 <Link to={`/delete/${car._id}`} className="remove">Delete</Link>
                             </>
                             : <>
-                                <p className="already-liked">You have already Liked this publication.</p>
-                                <Link to='/like' className="like-model">Like</Link>
+                                {isLiked
+                                    ? <p className="already-liked">You have already Liked this publication.</p>
+                                    : <button onClick={onLike} className="like-model">Like</button>
+                                }
                             </>}
                     </div>
                 </div>
