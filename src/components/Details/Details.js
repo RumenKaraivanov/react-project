@@ -1,26 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getOneById } from "../../services/car";
 import './Details.css';
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import AuthContext from "../../contexts/AuthContext";
 
 const Details = ({
     onError
 }) => {
-
     const { id } = useParams();
     const [car, setCar] = useState({});
+    const [isOwner, setIsOwner] = useState(false);
+    const { auth } = useContext(AuthContext);
     useEffect(() => {
         try {
             async function getCar() {
                 const data = await getOneById(id);
                 setCar(data);
-            }
+                if (auth._id === data._ownerId) {
+                    setIsOwner(true);
+                };
+            };
             getCar();
         } catch (err) {
-            onError(err)
-        }
-
-    }, [car, id]);
+            onError(err);
+        };
+    }, []);
     return (
         <section id="deatils-page">
             <div className="container">
@@ -37,10 +41,15 @@ const Details = ({
                         </div>
                     </div>
                     <div className="car-btn">
-                        <NavLink to={`/edit/${car._id}`} className="edit">Edit</NavLink>
-                        <NavLink to={`/delete/${car._id}`} className="remove">Delete</NavLink>
-                        <p className="already-liked">You have already Liked this publication.</p>
-                        <NavLink to='/like' className="like-model">Like</NavLink>
+                        {isOwner
+                            ? <>
+                                <Link to={`/edit/${car._id}`} className="edit">Edit</Link>
+                                <Link to={`/delete/${car._id}`} className="remove">Delete</Link>
+                            </>
+                            : <>
+                                <p className="already-liked">You have already Liked this publication.</p>
+                                <Link to='/like' className="like-model">Like</Link>
+                            </>}
                     </div>
                 </div>
             </div>

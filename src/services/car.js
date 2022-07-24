@@ -21,6 +21,27 @@ export const create = async (data, token) => {
         throw err;
     }
 };
+export const editCar = async (id, data, token) => {
+    try {
+        const response = await fetch(`${baseUrl}/data/cars/` + id,
+            {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Authorization': token
+                },
+                credentials: 'include',
+                body: JSON.stringify(data)
+            });
+        if (response.ok !== true) {
+            const error = await response.json();
+            throw new Error(error.message);
+        };
+        return await response.json();
+    } catch (err) {
+        throw err;
+    }
+}
 export const getAll = async () => {
     try {
         const response = await fetch(`${baseUrl}/data/cars`);
