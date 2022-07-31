@@ -12,6 +12,7 @@ import NotFound from './components/NotFound/NotFound';
 import Home from './components/Home/Home';
 import Error from './components/Error/Error';
 import PersistLogin from './components/PersistLogin/PersistLogin';
+import Remove from './components/Remove/Remove';
 
 function App() {
   const [err, setErr] = useState(null);
@@ -36,6 +37,7 @@ function App() {
           <Route path='/create' element={<Create onError={onError} />} />
           <Route path='/edit/:id' element={<Edit onError={onError} />} />
           <Route path='/details/:id' element={<Details onError={onError} />} />
+          <Route path='/delete/:id' element={<Remove onError={onError} />} />
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>

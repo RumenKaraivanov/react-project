@@ -86,3 +86,23 @@ export const getOneById = async (id) => {
         throw err;
     }
 };
+export const deleteOnebyId = async (id, token) => {
+    try {
+        const response = await fetch(`${baseUrl}/data/cars/` + id,
+            {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Authorization': token
+                },
+                credentials: 'include',
+            });
+            if (response.ok !== true) {
+                const error = await response.json();
+                throw new Error(error.message);
+            };
+            return response;
+    } catch (err) {
+        throw err;
+    }
+}
