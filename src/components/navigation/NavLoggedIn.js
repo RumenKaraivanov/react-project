@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import AuthContext from "../../contexts/AuthContext";
-import { logout } from '../../services/user';
+import { logout } from '../../services/api/user';
 
 
 const NavLoggedIn = ({

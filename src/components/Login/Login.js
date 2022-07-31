@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import loginImg from '../../assets/loginImg.jpg';
 import './Login.css';
-import { login } from '../../services/user';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from "../../contexts/AuthContext";
+import { login } from "../../services/api/user";
 
 
 const Login = ({

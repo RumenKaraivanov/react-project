@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import AuthContext from "../../contexts/AuthContext";
-import { deleteOnebyId } from "../../services/car";
+import { deleteOnebyId } from "../../services/api/car";
 
 const Remove = ({
     onError

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAll } from "../../services/car";
+import { getAll } from "../../services/api/car";
 import ItemCard from "../ItemCard/ItemCard";
 import './Catalog.css';
 

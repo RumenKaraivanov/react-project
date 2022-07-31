@@ -13,6 +13,7 @@ import Home from './components/Home/Home';
 import Error from './components/Error/Error';
 import PersistLogin from './components/PersistLogin/PersistLogin';
 import Remove from './components/Remove/Remove';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   const [err, setErr] = useState(null);
@@ -33,11 +34,13 @@ function App() {
         <Route path='/catalog' element={<Catalog onError={onError} />} />
         <Route path='/register' element={<Register onError={onError} />} />
         <Route path='/login' element={<Login onError={onError} />} />
-        <Route element={<PersistLogin onError={onError} />}>
-          <Route path='/create' element={<Create onError={onError} />} />
-          <Route path='/edit/:id' element={<Edit onError={onError} />} />
-          <Route path='/details/:id' element={<Details onError={onError} />} />
-          <Route path='/delete/:id' element={<Remove onError={onError} />} />
+        <Route element={<PrivateRoute />}>
+          <Route element={<PersistLogin onError={onError} />}>
+            <Route path='/create' element={<Create onError={onError} />} />
+            <Route path='/edit/:id' element={<Edit onError={onError} />} />
+            <Route path='/details/:id' element={<Details onError={onError} />} />
+            <Route path='/delete/:id' element={<Remove onError={onError} />} />
+          </Route>
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>

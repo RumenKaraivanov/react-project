@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
-import { getOneById, editCar } from "../../services/car";
+import { editCar, getOneById } from "../../services/api/car";
 import AuthContext from "../../contexts/AuthContext";
 import './Edit.css';
 

@@ -5,7 +5,7 @@ import AuthContext from "../../contexts/AuthContext";
 const PrivateRoute = () => {
     const { auth } = useContext(AuthContext);
 
-    if (!auth.accessToke) {
+    if (!auth.accessToken) {
         return <Navigate to='/login' replace />;
     };
 

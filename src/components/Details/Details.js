@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { getOneById, likeCar } from "../../services/car";
+import { likeCar, getOneById } from "../../services/api/car";
 import './Details.css';
 import { Link, useParams } from 'react-router-dom';
 import AuthContext from "../../contexts/AuthContext";
@@ -31,7 +31,7 @@ const Details = ({
         } catch (err) {
             onError(err);
         };
-    }, [justLiked, id, onError,auth._id]);
+    }, [justLiked, id, onError, auth._id]);
     const onLike = async () => {
         await likeCar(car._id, auth.accessToken);
         setJustLiked(state => !state);
