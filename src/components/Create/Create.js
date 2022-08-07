@@ -23,12 +23,22 @@ const Create = ({
 
         try {
 
-            await create({ model, price, imageUrl, description }, auth.accessToken)
+            if (model.length < 3) {
+                throw new Error('Model should be atleast 3 characters long.');
+            };
+            if (!(/^https?:/).test(imageUrl)) {
+                throw new Error('Image should be valid URL');
+            };
+            if (description.length < 20) {
+                throw new Error('Description should be atleast 20 characters long.');
+            };
+
+            await create({ model, price, imageUrl, description }, auth.accessToken);
             setDisabled(true);
             navigate('/catalog');
         } catch (err) {
             onError(err);
-        }
+        };
     };
 
     return (

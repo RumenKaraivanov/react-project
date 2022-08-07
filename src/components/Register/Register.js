@@ -22,9 +22,13 @@ const Register = ({
         const confirmPassword = formData.get('confirm-password')?.trim();
 
         try {
+            if(!(/[a-zA_Z-]+@[a-zA_Z-]+\.[a-zA_Z-]+/).test(email)){
+                throw new Error('Email must be in email format.');
+            };
+
             if (password !== confirmPassword) {
                 throw new Error('Passwords doesnt match!');
-            }
+            };
             const result = await register(email, password);
             setAuth(result);
             setIsDisabled(true);

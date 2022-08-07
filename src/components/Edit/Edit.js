@@ -31,7 +31,7 @@ const Edit = ({
         } catch (err) {
             onError(err);
         };
-    }, [id, onError]);
+    }, [id]);
     const onChange = (e) => {
         setInputValues(oldValues => {
             return {
@@ -57,6 +57,16 @@ const Edit = ({
             description
         };
         try {
+            if (model.length < 3) {
+                throw new Error('Model should be atleast 3 characters long.');
+            };
+            if (!(/^https?:/).test(imageUrl)) {
+                throw new Error('Image should be valid URL');
+            };
+            if (description.length < 20) {
+                throw new Error('Description should be atleast 20 characters long.');
+            };
+
             await editCar(inputValues._id, carInfo, auth.accessToken);
             setDisabled(true);
             navigate('/catalog');
