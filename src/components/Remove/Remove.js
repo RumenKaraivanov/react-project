@@ -13,8 +13,10 @@ const Remove = ({
 
         (async () => {
             try {
-                await deleteOnebyId(id, auth.accessToken);
-                navigate('/catalog', { replace: true });
+                if (window.confirm('Are you sure you want to delete this asset!')) {
+                    await deleteOnebyId(id, auth.accessToken);
+                    navigate('/catalog', { replace: true });
+                };
             } catch (err) {
                 onError(err);
             }

@@ -5,6 +5,9 @@ const url = '/data/cars';
 export async function getAll() {
     return api.get(url);
 };
+export async function getLiked(ownerId) {
+    return api.get(`${url}/?ownerId=${ownerId}`);
+};
 export async function create(data, token) {
     return api.post(url, data, token);
 };

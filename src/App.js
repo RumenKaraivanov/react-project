@@ -14,6 +14,7 @@ import Error from './components/Error/Error';
 import PersistLogin from './components/PersistLogin/PersistLogin';
 import Remove from './components/Remove/Remove';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Profile from './components/Profile/Profile';
 
 function App() {
   const [err, setErr] = useState(null);
@@ -34,8 +35,9 @@ function App() {
         <Route path='/catalog' element={<Catalog onError={onError} />} />
         <Route path='/register' element={<Register onError={onError} />} />
         <Route path='/login' element={<Login onError={onError} />} />
-        <Route element={<PrivateRoute />}>
-          <Route element={<PersistLogin onError={onError} />}>
+        <Route element={<PersistLogin onError={onError} />}>
+          <Route element={<PrivateRoute />}>
+            <Route path='/profile' element={<Profile onError={onError} />} />
             <Route path='/create' element={<Create onError={onError} />} />
             <Route path='/edit/:id' element={<Edit onError={onError} />} />
             <Route path='/details/:id' element={<Details onError={onError} />} />
