@@ -14,7 +14,6 @@ const Profile = ({
         try {
             async function getAllCars() {
                 const data = await getLiked(auth._id);
-                console.log(auth)
                 setCars(data);
             }
             getAllCars();
