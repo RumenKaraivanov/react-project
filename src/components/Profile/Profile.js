@@ -31,7 +31,7 @@ const Profile = ({
                 <p>Harvard University</p>
             </div>
             <div className="container-catalog">
-                {cars
+                {cars.length != 0
                     ?
                     <main className="grid">
                         {cars.map(car => <ItemCard key={car._id} car={car} />)}
